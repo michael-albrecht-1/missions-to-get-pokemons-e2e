@@ -7,9 +7,6 @@ describe("home switch", () => {
 
   it("should list all pokemons on uncheck", () => {
     cy.goTo("pokedex")
-      .get<NodeListOf<HTMLElement>>(
-        '[data-testid="pokemonCard"]', { timeout: 60000 }
-      )
       .get<HTMLInputElement>('[data-testid="caughtPokemonsSwitch"]')
       .click()
       .get<NodeListOf<HTMLElement>>(
