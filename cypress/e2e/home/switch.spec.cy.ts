@@ -9,10 +9,10 @@ describe("home switch", () => {
     cy.goTo("pokedex")
       .get<HTMLInputElement>('[data-testid="caughtPokemonsSwitch"]')
       .click()
-      .get<NodeListOf<HTMLElement>>(
-        '[data-testid="pokemonCard"]'
-      )
+      .get<NodeListOf<HTMLElement>>('[data-testid="pokemonCard"]', {
+        timeout: 60000,
+      })
       .not(':has([data-testid="caughtPokemon"])')
-      .should('have.length.greaterThan', 0)
+      .should("have.length.greaterThan", 0);
   });
 });
