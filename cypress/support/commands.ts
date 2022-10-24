@@ -40,14 +40,14 @@ export {};
 
 type Path = "pokedex" | "missions";
 
-Cypress.Commands.add("path", (path: Path) => {
+Cypress.Commands.add("goTo", (path: Path) => {
   return cy.visit(`http://localhost:4200/${path}`);
 });
 
 declare global {
   namespace Cypress {
     interface Chainable {
-      path(path: Path): ReturnType<typeof cy.visit>;
+      goTo(path: Path): ReturnType<typeof cy.visit>;
     }
   }
 }
